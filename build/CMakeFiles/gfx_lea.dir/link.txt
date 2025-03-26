@@ -1,1 +1,0 @@
-/usr/bin/c++ -g CMakeFiles/gfx_lea.dir/main.cpp.o -o gfx_lea 

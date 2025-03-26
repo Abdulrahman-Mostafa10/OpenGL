@@ -1,1 +1,0 @@
-/usr/bin/c++ -g CMakeFiles/gfx_s.dir/main.cpp.o -o gfx_s 
