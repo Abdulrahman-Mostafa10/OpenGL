@@ -1,0 +1,1 @@
+/usr/bin/c++ -g CMakeFiles/gfx_learn.dir/main.cpp.o -o gfx_learn 

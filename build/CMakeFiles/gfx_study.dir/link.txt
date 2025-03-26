@@ -1,0 +1,1 @@
+/usr/bin/c++ -g CMakeFiles/gfx_study.dir/main.cpp.o -o gfx_study 

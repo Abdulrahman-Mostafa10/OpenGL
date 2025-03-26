@@ -1,0 +1,8 @@
+[
+{
+  "directory": "/home/amostafa/CMP/OpenGL/build",
+  "command": "/usr/bin/c++   -g -o CMakeFiles/gfx_learn.dir/main.cpp.o -c /home/amostafa/CMP/OpenGL/main.cpp",
+  "file": "/home/amostafa/CMP/OpenGL/main.cpp",
+  "output": "CMakeFiles/gfx_learn.dir/main.cpp.o"
+}
+]
