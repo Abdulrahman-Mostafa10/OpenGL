@@ -65,7 +65,7 @@ int main()
 
     GLuint program = glCreateProgram();
     GLuint vs = load_shader("assets/shaders/simple.vert", GL_VERTEX_SHADER);
-    GLuint fs = load_shader("assets/shaders/simple.FRAG", GL_FRAGMENT_SHADER);
+    GLuint fs = load_shader("assets/shaders/simple.frag", GL_FRAGMENT_SHADER);
     glAttachShader(program, vs);
     glAttachShader(program, fs);
     glLinkProgram(program);
