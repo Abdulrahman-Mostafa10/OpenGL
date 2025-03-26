@@ -1,1 +1,0 @@
-/usr/bin/c++ -g CMakeFiles/gfx_learn.dir/main.cpp.o CMakeFiles/gfx_learn.dir/vendor/glad/src/glad.c.o -o /home/amostafa/CMP/OpenGL/bin/gfx_learn  vendor/glfw/src/libglfw3.a /usr/lib/x86_64-linux-gnu/librt.a -lm -ldl 
