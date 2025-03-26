@@ -76,15 +76,20 @@ int main()
     GLuint vertex_array;
     glGenVertexArrays(1, &vertex_array);
 
+    GLuint time_loc = glGetUniformLocation(program, "time");
+
     while (!glfwWindowShouldClose(window))
     {
         float time = (float)glfwGetTime();
-        glClearColor(0.5 * sinf(time) + 0.5, 0.5 * sinf(time + 1) + 0.5, 0.5 * sinf(time + 2) + 0.5, 1.0); // Draw the window with a sine function
+
+        glClearColor(0.0, 0.0, 0.0, 1.0);
         glClear(GL_COLOR_BUFFER_BIT); // To delete every frame
 
         glUseProgram(program);
         glBindVertexArray(vertex_array);
         glDrawArrays(GL_TRIANGLES, 0, 3);
+
+        glUniform1f(time_loc, time);
 
         glfwSwapBuffers(window); // To swap the back, and front buffers
         glfwPollEvents();
