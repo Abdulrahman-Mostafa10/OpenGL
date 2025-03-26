@@ -92,8 +92,8 @@ int main()
     GLuint vertex_buffer;
     GLuint vertex_array;
 
-    GLuint position_loc = glGetAttribLocation(program, "position");
-    GLuint color_loc = glGetAttribLocation(program, "color");
+    GLuint position_loc = 0; // glGetAttribLocation(program, "position");
+    GLuint color_loc = 1;    // glGetAttribLocation(program, "color");
     GLuint time_loc = glGetUniformLocation(program, "time");
 
     glGenBuffers(1, &vertex_buffer);
