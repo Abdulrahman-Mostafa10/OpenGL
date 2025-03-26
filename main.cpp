@@ -4,7 +4,23 @@
 #include <fstream>
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
-using namespace std; 
+using namespace std;
+
+struct Vec3{
+    float x, y, z;
+};
+
+struct Color{
+    uint8_t r, g, b, a;
+};
+
+struct Vertex{
+    Vec3 position;
+    Color color;
+};
+
+Vertex vertices[3] = {
+    {{-0.5, -0.5, 0.0}, {255, 0, 0, 255}}, {{0.5, -0.5, 0.0}, {0, 255, 0, 255}}, {{-0.5, 0.5, 0.0}, {0, 0, 255, 255}}};
 
 GLuint load_shader(const string&path,GLenum shader_type){
     fstream file(path);
@@ -57,7 +73,7 @@ int main()
 
     if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) // It takes the function it needs in loading
     {
-        std::cerr << "Failed to load procedures" << std::endl;
+        cerr << "Failed to load procedures" << endl;
         glfwDestroyWindow(window);
         glfwTerminate();
         exit(1);
@@ -73,10 +89,24 @@ int main()
     glDeleteShader(vs);
     glDeleteShader(fs);
 
+    GLuint vertex_buffer;
     GLuint vertex_array;
-    glGenVertexArrays(1, &vertex_array);
 
+    GLuint position_loc = glGetAttribLocation(program, "position");
+    GLuint color_loc = glGetAttribLocation(program, "color");
     GLuint time_loc = glGetUniformLocation(program, "time");
+
+    glGenBuffers(1, &vertex_buffer);
+    glBindBuffer(GL_ARRAY_BUFFER, vertex_buffer);
+    glBufferData(GL_ARRAY_BUFFER, 3 * sizeof(Vertex), vertices, GL_STATIC_DRAW);
+
+    glGenVertexArrays(1, &vertex_array);
+    glBindVertexArray(vertex_array);
+
+    glEnableVertexAttribArray(position_loc);
+    glEnableVertexAttribArray(color_loc);
+    glVertexAttribPointer(position_loc, 3, GL_FLOAT, false, sizeof(Vertex), (void *)0);
+    glVertexAttribPointer(color_loc, 4, GL_UNSIGNED_BYTE, true, sizeof(Vertex), (void *)offsetof(Vertex, color));
 
     while (!glfwWindowShouldClose(window))
     {
@@ -87,9 +117,12 @@ int main()
 
         glUseProgram(program);
         glBindVertexArray(vertex_array);
-        glDrawArrays(GL_TRIANGLES, 0, 3);
 
         glUniform1f(time_loc, time);
+        glDrawArrays(GL_TRIANGLES, 0, 3);
+
+        glUniform1f(time_loc, time + 1);
+        glDrawArrays(GL_TRIANGLES, 0, 3);
 
         glfwSwapBuffers(window); // To swap the back, and front buffers
         glfwPollEvents();
