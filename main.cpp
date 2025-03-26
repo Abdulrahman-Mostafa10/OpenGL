@@ -1,8 +1,39 @@
 #include <iostream>
 #include <cmath>
+#include<string>
+#include <fstream>
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 using namespace std;
+
+GLuint load_shader(const string&path,GLenum shader_type){
+    fstream file(path);
+    string sourceCode = string(istreambuf_iterator<char>(file), istreambuf_iterator<char>());
+    const char *sourceCodeCStr = sourceCode.c_str();
+
+    GLuint shader = glCreateShader(shader_type);
+    glShaderSource(shader, 1, &sourceCodeCStr, nullptr);
+    glCompileShader(shader);
+
+    GLint status;
+    glGetShaderiv(shader, GL_COMPILE_STATUS, &status);
+
+    if(!status){
+        GLint length;
+        glGetShaderiv(shader, GL_INFO_LOG_LENGTH, &length);
+        char *logStr = new char[length];
+        glGetShaderInfoLog(shader, length, nullptr, logStr);
+
+        cerr << "ERROR IN " << path << endl;
+        cerr << logStr << endl;
+        
+        delete[] logStr;
+        glDeleteShader(shader);
+        return 0;
+    }
+
+    return shader;
+}
 
 int main()
 {
@@ -32,16 +63,34 @@ int main()
         exit(1);
     }
 
-    
+    GLuint program = glCreateProgram();
+    GLuint vs = load_shader("assets/shaders/simple.vert", GL_VERTEX_SHADER);
+    GLuint fs = load_shader("assets/shaders/simple.FRAG", GL_FRAGMENT_SHADER);
+    glAttachShader(program, vs);
+    glAttachShader(program, fs);
+    glLinkProgram(program);
+
+    glDeleteShader(vs);
+    glDeleteShader(fs);
+
+    GLuint vertex_array;
+    glGenVertexArrays(1, &vertex_array);
+
     while (!glfwWindowShouldClose(window))
     {
         float time = (float)glfwGetTime();
         glClearColor(0.5 * sinf(time) + 0.5, 0.5 * sinf(time + 1) + 0.5, 0.5 * sinf(time + 2) + 0.5, 1.0); // Draw the window with a sine function
         glClear(GL_COLOR_BUFFER_BIT); // To delete every frame
-        glfwSwapBuffers(window);      // To swap the back, and front buffers
+
+        glUseProgram(program);
+        glBindVertexArray(vertex_array);
+        glDrawArrays(GL_TRIANGLES, 0, 3);
+
+        glfwSwapBuffers(window); // To swap the back, and front buffers
         glfwPollEvents();
     }
 
+    glDeleteProgram(program);
     glfwDestroyWindow(window);
     glfwTerminate();
 }

@@ -13,5 +13,9 @@ include_directories(
     vendor/glad/include
 )
 
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/bin)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG ${PROJECT_SOURCE_DIR}/bin)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELEASE ${PROJECT_SOURCE_DIR}/bin)
+
 add_executable(gfx_learn main.cpp vendor/glad/src/glad.c)
 target_link_libraries(gfx_learn glfw)
