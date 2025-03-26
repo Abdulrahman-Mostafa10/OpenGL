@@ -529,3 +529,272 @@ events:
       
       
 ...
+
+---
+events:
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/CheckCSourceCompiles.cmake:52 (cmake_check_source_compiles)"
+      - "/usr/share/cmake-3.28/Modules/FindThreads.cmake:97 (CHECK_C_SOURCE_COMPILES)"
+      - "/usr/share/cmake-3.28/Modules/FindThreads.cmake:163 (_threads_check_libc)"
+      - "vendor/glfw/CMakeLists.txt:52 (find_package)"
+    checks:
+      - "Performing Test CMAKE_HAVE_LIBC_PTHREAD"
+    directories:
+      source: "/home/amostafa/CMP/OpenGL/build/CMakeFiles/CMakeScratch/TryCompile-tFdTzs"
+      binary: "/home/amostafa/CMP/OpenGL/build/CMakeFiles/CMakeScratch/TryCompile-tFdTzs"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/amostafa/CMP/OpenGL/vendor/glfw/CMake/modules"
+    buildResult:
+      variable: "CMAKE_HAVE_LIBC_PTHREAD"
+      cached: true
+      stdout: |
+        Change Dir: '/home/amostafa/CMP/OpenGL/build/CMakeFiles/CMakeScratch/TryCompile-tFdTzs'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_7ee76/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_7ee76.dir/build.make CMakeFiles/cmTC_7ee76.dir/build
+        gmake[1]: Entering directory '/home/amostafa/CMP/OpenGL/build/CMakeFiles/CMakeScratch/TryCompile-tFdTzs'
+        Building C object CMakeFiles/cmTC_7ee76.dir/src.c.o
+        /usr/bin/cc -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_7ee76.dir/src.c.o -c /home/amostafa/CMP/OpenGL/build/CMakeFiles/CMakeScratch/TryCompile-tFdTzs/src.c
+        Linking C executable cmTC_7ee76
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7ee76.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_7ee76.dir/src.c.o -o cmTC_7ee76 
+        gmake[1]: Leaving directory '/home/amostafa/CMP/OpenGL/build/CMakeFiles/CMakeScratch/TryCompile-tFdTzs'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/CheckFunctionExists.cmake:86 (try_compile)"
+      - "vendor/glfw/src/CMakeLists.txt:70 (check_function_exists)"
+    checks:
+      - "Looking for memfd_create"
+    directories:
+      source: "/home/amostafa/CMP/OpenGL/build/CMakeFiles/CMakeScratch/TryCompile-dBSxwa"
+      binary: "/home/amostafa/CMP/OpenGL/build/CMakeFiles/CMakeScratch/TryCompile-dBSxwa"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/amostafa/CMP/OpenGL/vendor/glfw/CMake/modules"
+    buildResult:
+      variable: "HAVE_MEMFD_CREATE"
+      cached: true
+      stdout: |
+        Change Dir: '/home/amostafa/CMP/OpenGL/build/CMakeFiles/CMakeScratch/TryCompile-dBSxwa'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_72caf/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_72caf.dir/build.make CMakeFiles/cmTC_72caf.dir/build
+        gmake[1]: Entering directory '/home/amostafa/CMP/OpenGL/build/CMakeFiles/CMakeScratch/TryCompile-dBSxwa'
+        Building C object CMakeFiles/cmTC_72caf.dir/CheckFunctionExists.c.o
+        /usr/bin/cc   -DCHECK_FUNCTION_EXISTS=memfd_create -o CMakeFiles/cmTC_72caf.dir/CheckFunctionExists.c.o -c /home/amostafa/CMP/OpenGL/build/CMakeFiles/CMakeScratch/TryCompile-dBSxwa/CheckFunctionExists.c
+        Linking C executable cmTC_72caf
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_72caf.dir/link.txt --verbose=1
+        /usr/bin/cc  -DCHECK_FUNCTION_EXISTS=memfd_create CMakeFiles/cmTC_72caf.dir/CheckFunctionExists.c.o -o cmTC_72caf 
+        gmake[1]: Leaving directory '/home/amostafa/CMP/OpenGL/build/CMakeFiles/CMakeScratch/TryCompile-dBSxwa'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/CheckLibraryExists.cmake:69 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindX11.cmake:682 (check_library_exists)"
+      - "vendor/glfw/src/CMakeLists.txt:176 (find_package)"
+    checks:
+      - "Looking for XOpenDisplay in /usr/lib/x86_64-linux-gnu/libX11.so;/usr/lib/x86_64-linux-gnu/libXext.so"
+    directories:
+      source: "/home/amostafa/CMP/OpenGL/build/CMakeFiles/CMakeScratch/TryCompile-IHrtsM"
+      binary: "/home/amostafa/CMP/OpenGL/build/CMakeFiles/CMakeScratch/TryCompile-IHrtsM"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/amostafa/CMP/OpenGL/vendor/glfw/CMake/modules"
+    buildResult:
+      variable: "X11_LIB_X11_SOLO"
+      cached: true
+      stdout: |
+        Change Dir: '/home/amostafa/CMP/OpenGL/build/CMakeFiles/CMakeScratch/TryCompile-IHrtsM'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_9320e/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_9320e.dir/build.make CMakeFiles/cmTC_9320e.dir/build
+        gmake[1]: Entering directory '/home/amostafa/CMP/OpenGL/build/CMakeFiles/CMakeScratch/TryCompile-IHrtsM'
+        Building C object CMakeFiles/cmTC_9320e.dir/CheckFunctionExists.c.o
+        /usr/bin/cc   -DCHECK_FUNCTION_EXISTS=XOpenDisplay -o CMakeFiles/cmTC_9320e.dir/CheckFunctionExists.c.o -c /home/amostafa/CMP/OpenGL/build/CMakeFiles/CMakeScratch/TryCompile-IHrtsM/CheckFunctionExists.c
+        Linking C executable cmTC_9320e
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9320e.dir/link.txt --verbose=1
+        /usr/bin/cc  -DCHECK_FUNCTION_EXISTS=XOpenDisplay CMakeFiles/cmTC_9320e.dir/CheckFunctionExists.c.o -o cmTC_9320e  /usr/lib/x86_64-linux-gnu/libX11.so /usr/lib/x86_64-linux-gnu/libXext.so 
+        gmake[1]: Leaving directory '/home/amostafa/CMP/OpenGL/build/CMakeFiles/CMakeScratch/TryCompile-IHrtsM'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/CheckFunctionExists.cmake:86 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindX11.cmake:697 (check_function_exists)"
+      - "vendor/glfw/src/CMakeLists.txt:176 (find_package)"
+    checks:
+      - "Looking for gethostbyname"
+    directories:
+      source: "/home/amostafa/CMP/OpenGL/build/CMakeFiles/CMakeScratch/TryCompile-eR5tWJ"
+      binary: "/home/amostafa/CMP/OpenGL/build/CMakeFiles/CMakeScratch/TryCompile-eR5tWJ"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/amostafa/CMP/OpenGL/vendor/glfw/CMake/modules"
+    buildResult:
+      variable: "CMAKE_HAVE_GETHOSTBYNAME"
+      cached: true
+      stdout: |
+        Change Dir: '/home/amostafa/CMP/OpenGL/build/CMakeFiles/CMakeScratch/TryCompile-eR5tWJ'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_81b79/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_81b79.dir/build.make CMakeFiles/cmTC_81b79.dir/build
+        gmake[1]: Entering directory '/home/amostafa/CMP/OpenGL/build/CMakeFiles/CMakeScratch/TryCompile-eR5tWJ'
+        Building C object CMakeFiles/cmTC_81b79.dir/CheckFunctionExists.c.o
+        /usr/bin/cc   -DCHECK_FUNCTION_EXISTS=gethostbyname -o CMakeFiles/cmTC_81b79.dir/CheckFunctionExists.c.o -c /home/amostafa/CMP/OpenGL/build/CMakeFiles/CMakeScratch/TryCompile-eR5tWJ/CheckFunctionExists.c
+        Linking C executable cmTC_81b79
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_81b79.dir/link.txt --verbose=1
+        /usr/bin/cc  -DCHECK_FUNCTION_EXISTS=gethostbyname CMakeFiles/cmTC_81b79.dir/CheckFunctionExists.c.o -o cmTC_81b79 
+        gmake[1]: Leaving directory '/home/amostafa/CMP/OpenGL/build/CMakeFiles/CMakeScratch/TryCompile-eR5tWJ'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/CheckFunctionExists.cmake:86 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindX11.cmake:711 (check_function_exists)"
+      - "vendor/glfw/src/CMakeLists.txt:176 (find_package)"
+    checks:
+      - "Looking for connect"
+    directories:
+      source: "/home/amostafa/CMP/OpenGL/build/CMakeFiles/CMakeScratch/TryCompile-yirVSx"
+      binary: "/home/amostafa/CMP/OpenGL/build/CMakeFiles/CMakeScratch/TryCompile-yirVSx"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/amostafa/CMP/OpenGL/vendor/glfw/CMake/modules"
+    buildResult:
+      variable: "CMAKE_HAVE_CONNECT"
+      cached: true
+      stdout: |
+        Change Dir: '/home/amostafa/CMP/OpenGL/build/CMakeFiles/CMakeScratch/TryCompile-yirVSx'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_72753/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_72753.dir/build.make CMakeFiles/cmTC_72753.dir/build
+        gmake[1]: Entering directory '/home/amostafa/CMP/OpenGL/build/CMakeFiles/CMakeScratch/TryCompile-yirVSx'
+        Building C object CMakeFiles/cmTC_72753.dir/CheckFunctionExists.c.o
+        /usr/bin/cc   -DCHECK_FUNCTION_EXISTS=connect -o CMakeFiles/cmTC_72753.dir/CheckFunctionExists.c.o -c /home/amostafa/CMP/OpenGL/build/CMakeFiles/CMakeScratch/TryCompile-yirVSx/CheckFunctionExists.c
+        Linking C executable cmTC_72753
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_72753.dir/link.txt --verbose=1
+        /usr/bin/cc  -DCHECK_FUNCTION_EXISTS=connect CMakeFiles/cmTC_72753.dir/CheckFunctionExists.c.o -o cmTC_72753 
+        gmake[1]: Leaving directory '/home/amostafa/CMP/OpenGL/build/CMakeFiles/CMakeScratch/TryCompile-yirVSx'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/CheckFunctionExists.cmake:86 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindX11.cmake:720 (check_function_exists)"
+      - "vendor/glfw/src/CMakeLists.txt:176 (find_package)"
+    checks:
+      - "Looking for remove"
+    directories:
+      source: "/home/amostafa/CMP/OpenGL/build/CMakeFiles/CMakeScratch/TryCompile-0nBKJY"
+      binary: "/home/amostafa/CMP/OpenGL/build/CMakeFiles/CMakeScratch/TryCompile-0nBKJY"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/amostafa/CMP/OpenGL/vendor/glfw/CMake/modules"
+    buildResult:
+      variable: "CMAKE_HAVE_REMOVE"
+      cached: true
+      stdout: |
+        Change Dir: '/home/amostafa/CMP/OpenGL/build/CMakeFiles/CMakeScratch/TryCompile-0nBKJY'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_a3c48/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_a3c48.dir/build.make CMakeFiles/cmTC_a3c48.dir/build
+        gmake[1]: Entering directory '/home/amostafa/CMP/OpenGL/build/CMakeFiles/CMakeScratch/TryCompile-0nBKJY'
+        Building C object CMakeFiles/cmTC_a3c48.dir/CheckFunctionExists.c.o
+        /usr/bin/cc   -DCHECK_FUNCTION_EXISTS=remove -o CMakeFiles/cmTC_a3c48.dir/CheckFunctionExists.c.o -c /home/amostafa/CMP/OpenGL/build/CMakeFiles/CMakeScratch/TryCompile-0nBKJY/CheckFunctionExists.c
+        Linking C executable cmTC_a3c48
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a3c48.dir/link.txt --verbose=1
+        /usr/bin/cc  -DCHECK_FUNCTION_EXISTS=remove CMakeFiles/cmTC_a3c48.dir/CheckFunctionExists.c.o -o cmTC_a3c48 
+        gmake[1]: Leaving directory '/home/amostafa/CMP/OpenGL/build/CMakeFiles/CMakeScratch/TryCompile-0nBKJY'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/CheckFunctionExists.cmake:86 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindX11.cmake:729 (check_function_exists)"
+      - "vendor/glfw/src/CMakeLists.txt:176 (find_package)"
+    checks:
+      - "Looking for shmat"
+    directories:
+      source: "/home/amostafa/CMP/OpenGL/build/CMakeFiles/CMakeScratch/TryCompile-N3G8ZX"
+      binary: "/home/amostafa/CMP/OpenGL/build/CMakeFiles/CMakeScratch/TryCompile-N3G8ZX"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/amostafa/CMP/OpenGL/vendor/glfw/CMake/modules"
+    buildResult:
+      variable: "CMAKE_HAVE_SHMAT"
+      cached: true
+      stdout: |
+        Change Dir: '/home/amostafa/CMP/OpenGL/build/CMakeFiles/CMakeScratch/TryCompile-N3G8ZX'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_70f10/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_70f10.dir/build.make CMakeFiles/cmTC_70f10.dir/build
+        gmake[1]: Entering directory '/home/amostafa/CMP/OpenGL/build/CMakeFiles/CMakeScratch/TryCompile-N3G8ZX'
+        Building C object CMakeFiles/cmTC_70f10.dir/CheckFunctionExists.c.o
+        /usr/bin/cc   -DCHECK_FUNCTION_EXISTS=shmat -o CMakeFiles/cmTC_70f10.dir/CheckFunctionExists.c.o -c /home/amostafa/CMP/OpenGL/build/CMakeFiles/CMakeScratch/TryCompile-N3G8ZX/CheckFunctionExists.c
+        Linking C executable cmTC_70f10
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_70f10.dir/link.txt --verbose=1
+        /usr/bin/cc  -DCHECK_FUNCTION_EXISTS=shmat CMakeFiles/cmTC_70f10.dir/CheckFunctionExists.c.o -o cmTC_70f10 
+        gmake[1]: Leaving directory '/home/amostafa/CMP/OpenGL/build/CMakeFiles/CMakeScratch/TryCompile-N3G8ZX'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/CheckLibraryExists.cmake:69 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindX11.cmake:739 (check_library_exists)"
+      - "vendor/glfw/src/CMakeLists.txt:176 (find_package)"
+    checks:
+      - "Looking for IceConnectionNumber in ICE"
+    directories:
+      source: "/home/amostafa/CMP/OpenGL/build/CMakeFiles/CMakeScratch/TryCompile-oXIQj7"
+      binary: "/home/amostafa/CMP/OpenGL/build/CMakeFiles/CMakeScratch/TryCompile-oXIQj7"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/amostafa/CMP/OpenGL/vendor/glfw/CMake/modules"
+    buildResult:
+      variable: "CMAKE_LIB_ICE_HAS_ICECONNECTIONNUMBER"
+      cached: true
+      stdout: |
+        Change Dir: '/home/amostafa/CMP/OpenGL/build/CMakeFiles/CMakeScratch/TryCompile-oXIQj7'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_e09da/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_e09da.dir/build.make CMakeFiles/cmTC_e09da.dir/build
+        gmake[1]: Entering directory '/home/amostafa/CMP/OpenGL/build/CMakeFiles/CMakeScratch/TryCompile-oXIQj7'
+        Building C object CMakeFiles/cmTC_e09da.dir/CheckFunctionExists.c.o
+        /usr/bin/cc   -DCHECK_FUNCTION_EXISTS=IceConnectionNumber -o CMakeFiles/cmTC_e09da.dir/CheckFunctionExists.c.o -c /home/amostafa/CMP/OpenGL/build/CMakeFiles/CMakeScratch/TryCompile-oXIQj7/CheckFunctionExists.c
+        Linking C executable cmTC_e09da
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e09da.dir/link.txt --verbose=1
+        /usr/bin/cc  -DCHECK_FUNCTION_EXISTS=IceConnectionNumber CMakeFiles/cmTC_e09da.dir/CheckFunctionExists.c.o -o cmTC_e09da  -lICE 
+        gmake[1]: Leaving directory '/home/amostafa/CMP/OpenGL/build/CMakeFiles/CMakeScratch/TryCompile-oXIQj7'
+        
+      exitCode: 0
+...
