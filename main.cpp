@@ -4,7 +4,7 @@
 #include <fstream>
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
-using namespace std;
+using namespace std; 
 
 GLuint load_shader(const string&path,GLenum shader_type){
     fstream file(path);
