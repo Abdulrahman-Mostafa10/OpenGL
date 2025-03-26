@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/home/amostafa/CMP/OpenGL/vendor/glad/src/glad.c" "CMakeFiles/gfx_learn.dir/vendor/glad/src/glad.c.o" "gcc" "CMakeFiles/gfx_learn.dir/vendor/glad/src/glad.c.o.d"
   "/home/amostafa/CMP/OpenGL/main.cpp" "CMakeFiles/gfx_learn.dir/main.cpp.o" "gcc" "CMakeFiles/gfx_learn.dir/main.cpp.o.d"
   )
 

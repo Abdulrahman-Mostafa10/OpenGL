@@ -1,9 +1,15 @@
 [
 {
   "directory": "/home/amostafa/CMP/OpenGL/build",
-  "command": "/usr/bin/c++   -g -o CMakeFiles/gfx_learn.dir/main.cpp.o -c /home/amostafa/CMP/OpenGL/main.cpp",
+  "command": "/usr/bin/c++  -I/home/amostafa/CMP/OpenGL/vendor/glfw/include, -I/home/amostafa/CMP/OpenGL/vendor/glad/include -I/home/amostafa/CMP/OpenGL/vendor/glfw/include -g -o CMakeFiles/gfx_learn.dir/main.cpp.o -c /home/amostafa/CMP/OpenGL/main.cpp",
   "file": "/home/amostafa/CMP/OpenGL/main.cpp",
   "output": "CMakeFiles/gfx_learn.dir/main.cpp.o"
+},
+{
+  "directory": "/home/amostafa/CMP/OpenGL/build",
+  "command": "/usr/bin/cc  -I/home/amostafa/CMP/OpenGL/vendor/glfw/include, -I/home/amostafa/CMP/OpenGL/vendor/glad/include -I/home/amostafa/CMP/OpenGL/vendor/glfw/include -g -o CMakeFiles/gfx_learn.dir/vendor/glad/src/glad.c.o -c /home/amostafa/CMP/OpenGL/vendor/glad/src/glad.c",
+  "file": "/home/amostafa/CMP/OpenGL/vendor/glad/src/glad.c",
+  "output": "CMakeFiles/gfx_learn.dir/vendor/glad/src/glad.c.o"
 },
 {
   "directory": "/home/amostafa/CMP/OpenGL/build/vendor/glfw/src",

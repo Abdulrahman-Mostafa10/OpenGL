@@ -199,6 +199,30 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/gfx_learn.dir/build.make CMakeFiles/gfx_learn.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+vendor/glad/src/glad.o: vendor/glad/src/glad.c.o
+.PHONY : vendor/glad/src/glad.o
+
+# target to build an object file
+vendor/glad/src/glad.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gfx_learn.dir/build.make CMakeFiles/gfx_learn.dir/vendor/glad/src/glad.c.o
+.PHONY : vendor/glad/src/glad.c.o
+
+vendor/glad/src/glad.i: vendor/glad/src/glad.c.i
+.PHONY : vendor/glad/src/glad.i
+
+# target to preprocess a source file
+vendor/glad/src/glad.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gfx_learn.dir/build.make CMakeFiles/gfx_learn.dir/vendor/glad/src/glad.c.i
+.PHONY : vendor/glad/src/glad.c.i
+
+vendor/glad/src/glad.s: vendor/glad/src/glad.c.s
+.PHONY : vendor/glad/src/glad.s
+
+# target to generate assembly for a file
+vendor/glad/src/glad.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gfx_learn.dir/build.make CMakeFiles/gfx_learn.dir/vendor/glad/src/glad.c.s
+.PHONY : vendor/glad/src/glad.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -215,6 +239,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... vendor/glad/src/glad.o"
+	@echo "... vendor/glad/src/glad.i"
+	@echo "... vendor/glad/src/glad.s"
 .PHONY : help
 
 
