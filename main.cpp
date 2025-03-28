@@ -1,28 +1,38 @@
 #include <iostream>
 #include <cmath>
-#include<string>
+#include <string>
 #include <fstream>
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 using namespace std;
 
-struct Vec3{
+struct Vec3
+{
     float x, y, z;
 };
 
-struct Color{
+struct Color
+{
     uint8_t r, g, b, a;
 };
 
-struct Vertex{
+struct Vertex
+{
     Vec3 position;
     Color color;
 };
 
-Vertex vertices[3] = {
-    {{-0.5, -0.5, 0.0}, {255, 0, 0, 255}}, {{0.5, -0.5, 0.0}, {0, 255, 0, 255}}, {{-0.5, 0.5, 0.0}, {0, 0, 255, 255}}};
+uint16_t elements[6] = {0, 1, 2, 3, 1, 2};
 
-GLuint load_shader(const string&path,GLenum shader_type){
+Vertex vertices[4] = {
+    {{-0.5, -0.5, 0.0}, {255, 0, 0, 255}},
+    {{0.5, -0.5, 0.0}, {0, 255, 0, 255}},
+    {{-0.5, 0.5, 0.0}, {0, 0, 255, 255}},
+    {{0.5, 0.5, 0.0}, {255, 255, 0, 255}},
+};
+
+GLuint load_shader(const string &path, GLenum shader_type)
+{
     fstream file(path);
     string sourceCode = string(istreambuf_iterator<char>(file), istreambuf_iterator<char>());
     const char *sourceCodeCStr = sourceCode.c_str();
@@ -34,7 +44,8 @@ GLuint load_shader(const string&path,GLenum shader_type){
     GLint status;
     glGetShaderiv(shader, GL_COMPILE_STATUS, &status);
 
-    if(!status){
+    if (!status)
+    {
         GLint length;
         glGetShaderiv(shader, GL_INFO_LOG_LENGTH, &length);
         char *logStr = new char[length];
@@ -42,7 +53,7 @@ GLuint load_shader(const string&path,GLenum shader_type){
 
         cerr << "ERROR IN " << path << endl;
         cerr << logStr << endl;
-        
+
         delete[] logStr;
         glDeleteShader(shader);
         return 0;
@@ -53,7 +64,8 @@ GLuint load_shader(const string&path,GLenum shader_type){
 
 int main()
 {
-    if(!glfwInit()){
+    if (!glfwInit())
+    {
         cerr << "Failed to initialize GLFW" << endl;
         exit(1);
     }
@@ -63,7 +75,8 @@ int main()
 
     GLFWwindow *window = glfwCreateWindow(640, 480, "Hello Triangle", nullptr, nullptr);
 
-    if(!window){
+    if (!window)
+    {
         cerr << "Failed to create a window" << endl;
         glfwTerminate();
         exit(1);
@@ -90,23 +103,35 @@ int main()
     glDeleteShader(fs);
 
     GLuint vertex_buffer;
-    GLuint vertex_array;
-
-    GLuint position_loc = 0; // glGetAttribLocation(program, "position");
-    GLuint color_loc = 1;    // glGetAttribLocation(program, "color");
-    GLuint time_loc = glGetUniformLocation(program, "time");
-
     glGenBuffers(1, &vertex_buffer);
     glBindBuffer(GL_ARRAY_BUFFER, vertex_buffer);
-    glBufferData(GL_ARRAY_BUFFER, 3 * sizeof(Vertex), vertices, GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, 64 * sizeof(Vertex), vertices, GL_STATIC_DRAW);
 
+    GLuint element_buffer;
+    glGenBuffers(1, &element_buffer);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, element_buffer);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, 6 * sizeof(uint16_t), elements, GL_STATIC_DRAW);
+
+    GLuint vertex_array;
     glGenVertexArrays(1, &vertex_array);
     glBindVertexArray(vertex_array);
 
-    glEnableVertexAttribArray(position_loc);
+    // ************************ Start binding to the vertex array ************************
+
+    GLuint position_loc = 0;                                                            // glGetAttribLocation(program, "position");
+    glEnableVertexAttribArray(position_loc);                                            // The vertex array knows that the vertex shader would read at the location defined
+    glVertexAttribPointer(position_loc, 3, GL_FLOAT, false, sizeof(Vertex), (void *)0); // The vertex array knows that for the location defined, it will read the value needed from the vertex buffer, with the defined size
+
+    GLuint color_loc = 1; // glGetAttribLocation(program, "color");
     glEnableVertexAttribArray(color_loc);
-    glVertexAttribPointer(position_loc, 3, GL_FLOAT, false, sizeof(Vertex), (void *)0);
     glVertexAttribPointer(color_loc, 4, GL_UNSIGNED_BYTE, true, sizeof(Vertex), (void *)offsetof(Vertex, color));
+
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, element_buffer); // We determine that that buffer would be the source of drawing when the vertex array would search for
+    glBindVertexArray(0);
+
+    // ************************ End binding to the vertex array ************************
+
+    GLuint time_loc = glGetUniformLocation(program, "time");
 
     while (!glfwWindowShouldClose(window))
     {
@@ -119,10 +144,11 @@ int main()
         glBindVertexArray(vertex_array);
 
         glUniform1f(time_loc, time);
-        glDrawArrays(GL_TRIANGLES, 0, 3);
+        // glDrawArrays(GL_TRIANGLES, 0, 3);
+        glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_SHORT, (void *)0);
 
-        glUniform1f(time_loc, time + 1);
-        glDrawArrays(GL_TRIANGLES, 0, 3);
+        // glUniform1f(time_loc, time + 1);
+        // glDrawArrays(GL_TRIANGLES, 0, 6);
 
         glfwSwapBuffers(window); // To swap the back, and front buffers
         glfwPollEvents();
